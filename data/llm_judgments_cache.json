@@ -1,0 +1,251 @@
+{
+  "model_note": "Judgments produced by a Claude subagent reasoning individually over each pair, dated 2026-09-13, as part of building this repository's evaluation dataset. No live Anthropic API call was made from within the shipped pipeline code; these are cached, one-time annotations.",
+  "judgments": [
+    {
+      "pair_id": "P000",
+      "same_event": false,
+      "confidence": 0.98,
+      "rationale": "SUCCESS and FAILED are opposite task outcomes and must remain distinct for alerting purposes."
+    },
+    {
+      "pair_id": "P001",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "One reports a successful completion and the other a failure with an error code, an outcome distinction that must be preserved."
+    },
+    {
+      "pair_id": "P002",
+      "same_event": false,
+      "confidence": 0.68,
+      "rationale": "DEGRADED signals a partial/problem outcome distinct from full SUCCESS, though how sharply these differ operationally is genuinely debatable."
+    },
+    {
+      "pair_id": "P003",
+      "same_event": true,
+      "confidence": 0.62,
+      "rationale": "Both describe a task failure (generic FAILED status vs. failure with an error code), and the error_code reads more like added diagnostic detail than a different outcome type."
+    },
+    {
+      "pair_id": "P004",
+      "same_event": false,
+      "confidence": 0.82,
+      "rationale": "FAILED (complete failure) and DEGRADED (reduced but non-failing operation) are different severities worth keeping distinct."
+    },
+    {
+      "pair_id": "P005",
+      "same_event": false,
+      "confidence": 0.8,
+      "rationale": "A hard failure with an error code and a degraded-but-completed status represent different outcome categories."
+    },
+    {
+      "pair_id": "P006",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same 'DAG run succeeded' event; only the DAG name (an equivalent category value) differs."
+    },
+    {
+      "pair_id": "P007",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "success and running are different lifecycle states of the same DAG and must stay distinct."
+    },
+    {
+      "pair_id": "P008",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same success event, differing only by DAG instance name."
+    },
+    {
+      "pair_id": "P009",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same success event, differing only by DAG instance name."
+    },
+    {
+      "pair_id": "P010",
+      "same_event": false,
+      "confidence": 0.95,
+      "rationale": "success vs running is the operative difference even though the DAG name also changes."
+    },
+    {
+      "pair_id": "P011",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "success and failed are opposite DAG run outcomes."
+    },
+    {
+      "pair_id": "P012",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "success and running are different states."
+    },
+    {
+      "pair_id": "P013",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "success and failed are opposite outcomes."
+    },
+    {
+      "pair_id": "P014",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "success and failed are opposite outcomes."
+    },
+    {
+      "pair_id": "P015",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same 'DAG run running' event, differing only by DAG name."
+    },
+    {
+      "pair_id": "P016",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "running and failed are different states."
+    },
+    {
+      "pair_id": "P017",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same running event, differing only by DAG name."
+    },
+    {
+      "pair_id": "P018",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same running event, differing only by DAG name."
+    },
+    {
+      "pair_id": "P019",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "running and failed are different states."
+    },
+    {
+      "pair_id": "P020",
+      "same_event": false,
+      "confidence": 0.97,
+      "rationale": "running and failed are different states."
+    },
+    {
+      "pair_id": "P021",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same 'DAG run failed' event, differing only by DAG name."
+    },
+    {
+      "pair_id": "P022",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same failed event, differing only by DAG name."
+    },
+    {
+      "pair_id": "P023",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same failed event, differing only by DAG name."
+    },
+    {
+      "pair_id": "P024",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same tablespace-usage event, differing only by tablespace name."
+    },
+    {
+      "pair_id": "P025",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same tablespace-usage event, differing only by tablespace name."
+    },
+    {
+      "pair_id": "P026",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same tablespace-usage event, differing only by tablespace name."
+    },
+    {
+      "pair_id": "P027",
+      "same_event": true,
+      "confidence": 0.93,
+      "rationale": "Same cache-hit-ratio-drop event, differing only by cache name."
+    },
+    {
+      "pair_id": "P028",
+      "same_event": true,
+      "confidence": 0.93,
+      "rationale": "Same cache-hit-ratio-drop event, differing only by cache name."
+    },
+    {
+      "pair_id": "P029",
+      "same_event": true,
+      "confidence": 0.93,
+      "rationale": "Same cache-hit-ratio-drop event, differing only by cache name."
+    },
+    {
+      "pair_id": "P030",
+      "same_event": false,
+      "confidence": 0.8,
+      "rationale": "Node-level MemoryPressure eviction and container-level OOMKill are distinct Kubernetes failure modes needing different remediation."
+    },
+    {
+      "pair_id": "P031",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same row-count-delta event, differing only by table name."
+    },
+    {
+      "pair_id": "P032",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same row-count-delta event, differing only by table name."
+    },
+    {
+      "pair_id": "P033",
+      "same_event": true,
+      "confidence": 0.95,
+      "rationale": "Same row-count-delta event, differing only by table name."
+    },
+    {
+      "pair_id": "P034",
+      "same_event": true,
+      "confidence": 0.93,
+      "rationale": "Same checkpoint-lag event, differing only by consumer group name."
+    },
+    {
+      "pair_id": "P035",
+      "same_event": true,
+      "confidence": 0.93,
+      "rationale": "Same checkpoint-lag event, differing only by consumer group name."
+    },
+    {
+      "pair_id": "P036",
+      "same_event": true,
+      "confidence": 0.93,
+      "rationale": "Same checkpoint-lag event, differing only by consumer group name."
+    },
+    {
+      "pair_id": "P037",
+      "same_event": true,
+      "confidence": 0.62,
+      "rationale": "Both are generic HTTP access-log lines; the endpoint path looks like an instance parameter of the same request-completed event, though different routes can also mean genuinely different operations."
+    },
+    {
+      "pair_id": "P038",
+      "same_event": true,
+      "confidence": 0.62,
+      "rationale": "Same generic request-completed log shape with only the endpoint differing, though a health-check route arguably serves a different operational purpose than others."
+    },
+    {
+      "pair_id": "P039",
+      "same_event": true,
+      "confidence": 0.62,
+      "rationale": "Same generic request-completed log shape; endpoint differences plausibly a category value rather than a distinct event type."
+    },
+    {
+      "pair_id": "P040",
+      "same_event": true,
+      "confidence": 0.65,
+      "rationale": "Both report the same task failure with an error code; the appended 'retryable' looks like extra metadata on one outcome, though it could matter enough for alerting/routing to argue the other way."
+    }
+  ]
+}
