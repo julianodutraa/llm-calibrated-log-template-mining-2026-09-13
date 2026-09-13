@@ -1,0 +1,4 @@
+pytest>=7.0
+# Optional, only needed if you re-run the judge live against new data
+# instead of replaying the cached judgments shipped in data/:
+# anthropic>=0.30
