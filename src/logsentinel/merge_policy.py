@@ -53,16 +53,22 @@ class PolicyMetrics:
         return (self.tp + self.tn) / n if n else float("nan")
 
     def as_dict(self) -> dict:
+        def _safe_round(x: float) -> float | None:
+            # NaN is not valid JSON; represent an undefined metric (e.g.
+            # precision with zero positive predictions) as null instead of
+            # letting json.dumps emit the non-standard literal `NaN`.
+            return None if x != x else round(x, 4)
+
         return {
             "tau": self.tau,
             "tp": self.tp,
             "fp": self.fp,
             "fn": self.fn,
             "tn": self.tn,
-            "precision": round(self.precision, 4),
-            "recall": round(self.recall, 4),
-            "f1": round(self.f1, 4),
-            "accuracy": round(self.accuracy, 4),
+            "precision": _safe_round(self.precision),
+            "recall": _safe_round(self.recall),
+            "f1": _safe_round(self.f1),
+            "accuracy": _safe_round(self.accuracy),
         }
 
 
