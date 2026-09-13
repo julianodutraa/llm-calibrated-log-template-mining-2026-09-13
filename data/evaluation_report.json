@@ -1,0 +1,144 @@
+{
+  "merge_policy_evaluation": {
+    "n_pairs": 41,
+    "n_should_merge": 25,
+    "n_should_not_merge": 16,
+    "judge_calibration": {
+      "brier_score": 0.0301,
+      "expected_calibration_error_5bin": 0.08,
+      "reliability_bins": [
+        {
+          "range": [0.0, 0.2],
+          "n": 14,
+          "avg_confidence": 0.0657,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "range": [0.2, 0.4],
+          "n": 1,
+          "avg_confidence": 0.32,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "range": [0.4, 0.6],
+          "n": 0,
+          "avg_confidence": 0.0,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "range": [0.6, 0.8],
+          "n": 5,
+          "avg_confidence": 0.626,
+          "empirical_accuracy": 0.8
+        },
+        {
+          "range": [0.8, 1.0],
+          "n": 21,
+          "avg_confidence": 0.9443,
+          "empirical_accuracy": 1.0
+        }
+      ]
+    },
+    "policy_comparison": {
+      "naive_threshold_operating_point_tau_0.90": {
+        "tau": 0.9,
+        "tp": 0,
+        "fp": 0,
+        "fn": 25,
+        "tn": 16,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.3902
+      },
+      "naive_threshold_best_f1_over_sweep": {
+        "tau": 0.8,
+        "tp": 25,
+        "fp": 4,
+        "fn": 0,
+        "tn": 12,
+        "precision": 0.8621,
+        "recall": 1.0,
+        "f1": 0.9259,
+        "accuracy": 0.9024
+      },
+      "llm_calibrated_operating_point_tau_0.50": {
+        "tau": 0.5,
+        "tp": 25,
+        "fp": 1,
+        "fn": 0,
+        "tn": 15,
+        "precision": 0.9615,
+        "recall": 1.0,
+        "f1": 0.9804,
+        "accuracy": 0.9756
+      },
+      "llm_calibrated_best_f1_over_sweep": {
+        "tau": 0.35,
+        "tp": 25,
+        "fp": 1,
+        "fn": 0,
+        "tn": 15,
+        "precision": 0.9615,
+        "recall": 1.0,
+        "f1": 0.9804,
+        "accuracy": 0.9756
+      }
+    },
+    "per_pair": [
+      {"pair_id": "P000", "template_a": "task_id=<*> finished in <*> with status SUCCESS", "template_b": "task_id=<*> finished in <*> with status FAILED", "structural_similarity": 0.8571, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.98, "judge_p_same_event": 0.02, "judge_rationale": "SUCCESS and FAILED are opposite task outcomes and must remain distinct for alerting purposes."},
+      {"pair_id": "P001", "template_a": "task_id=<*> finished in <*> with status SUCCESS", "template_b": "task_id=<*> failed after <*> with error_code <*>", "structural_similarity": 0.4286, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "One reports a successful completion and the other a failure with an error code, an outcome distinction that must be preserved."},
+      {"pair_id": "P002", "template_a": "task_id=<*> finished in <*> with status SUCCESS", "template_b": "task_id=<*> finished in <*> with status DEGRADED", "structural_similarity": 0.8571, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.68, "judge_p_same_event": 0.32, "judge_rationale": "DEGRADED signals a partial/problem outcome distinct from full SUCCESS, though how sharply these differ operationally is genuinely debatable."},
+      {"pair_id": "P003", "template_a": "task_id=<*> finished in <*> with status FAILED", "template_b": "task_id=<*> failed after <*> with error_code <*>", "structural_similarity": 0.4286, "ground_truth_same_event": false, "judge_same_event": true, "judge_confidence": 0.62, "judge_p_same_event": 0.62, "judge_rationale": "Both describe a task failure (generic FAILED status vs. failure with an error code), and the error_code reads more like added diagnostic detail than a different outcome type."},
+      {"pair_id": "P004", "template_a": "task_id=<*> finished in <*> with status FAILED", "template_b": "task_id=<*> finished in <*> with status DEGRADED", "structural_similarity": 0.8571, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.82, "judge_p_same_event": 0.18, "judge_rationale": "FAILED (complete failure) and DEGRADED (reduced but non-failing operation) are different severities worth keeping distinct."},
+      {"pair_id": "P005", "template_a": "task_id=<*> failed after <*> with error_code <*>", "template_b": "task_id=<*> finished in <*> with status DEGRADED", "structural_similarity": 0.5714, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.8, "judge_p_same_event": 0.2, "judge_rationale": "A hard failure with an error code and a degraded-but-completed status represent different outcome categories."},
+      {"pair_id": "P006", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag capacity_snapshot state changed to success", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same 'DAG run succeeded' event; only the DAG name (an equivalent category value) differs."},
+      {"pair_id": "P007", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag hourly_ingest state changed to running", "structural_similarity": 0.8889, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "success and running are different lifecycle states of the same DAG and must stay distinct."},
+      {"pair_id": "P008", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag backfill_partition state changed to success", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same success event, differing only by DAG instance name."},
+      {"pair_id": "P009", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag daily_rollup state changed to success", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same success event, differing only by DAG instance name."},
+      {"pair_id": "P010", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag daily_rollup state changed to running", "structural_similarity": 0.7778, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.95, "judge_p_same_event": 0.05, "judge_rationale": "success vs running is the operative difference even though the DAG name also changes."},
+      {"pair_id": "P011", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag capacity_snapshot state changed to failed", "structural_similarity": 0.7778, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "success and failed are opposite DAG run outcomes."},
+      {"pair_id": "P012", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag capacity_snapshot state changed to running", "structural_similarity": 0.7778, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "success and running are different states."},
+      {"pair_id": "P013", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag daily_rollup state changed to failed", "structural_similarity": 0.7778, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "success and failed are opposite outcomes."},
+      {"pair_id": "P014", "template_a": "dag_run <*> for dag hourly_ingest state changed to success", "template_b": "dag_run <*> for dag backfill_partition state changed to failed", "structural_similarity": 0.7778, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "success and failed are opposite outcomes."},
+      {"pair_id": "P015", "template_a": "dag_run <*> for dag hourly_ingest state changed to running", "template_b": "dag_run <*> for dag daily_rollup state changed to running", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same 'DAG run running' event, differing only by DAG name."},
+      {"pair_id": "P016", "template_a": "dag_run <*> for dag hourly_ingest state changed to running", "template_b": "dag_run <*> for dag capacity_snapshot state changed to failed", "structural_similarity": 0.7778, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "running and failed are different states."},
+      {"pair_id": "P017", "template_a": "dag_run <*> for dag hourly_ingest state changed to running", "template_b": "dag_run <*> for dag capacity_snapshot state changed to running", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same running event, differing only by DAG name."},
+      {"pair_id": "P018", "template_a": "dag_run <*> for dag hourly_ingest state changed to running", "template_b": "dag_run <*> for dag backfill_partition state changed to running", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same running event, differing only by DAG name."},
+      {"pair_id": "P019", "template_a": "dag_run <*> for dag hourly_ingest state changed to running", "template_b": "dag_run <*> for dag daily_rollup state changed to failed", "structural_similarity": 0.7778, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "running and failed are different states."},
+      {"pair_id": "P020", "template_a": "dag_run <*> for dag hourly_ingest state changed to running", "template_b": "dag_run <*> for dag backfill_partition state changed to failed", "structural_similarity": 0.7778, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.97, "judge_p_same_event": 0.03, "judge_rationale": "running and failed are different states."},
+      {"pair_id": "P021", "template_a": "dag_run <*> for dag capacity_snapshot state changed to failed", "template_b": "dag_run <*> for dag daily_rollup state changed to failed", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same 'DAG run failed' event, differing only by DAG name."},
+      {"pair_id": "P022", "template_a": "dag_run <*> for dag capacity_snapshot state changed to failed", "template_b": "dag_run <*> for dag backfill_partition state changed to failed", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same failed event, differing only by DAG name."},
+      {"pair_id": "P023", "template_a": "dag_run <*> for dag capacity_snapshot state changed to failed", "template_b": "dag_run <*> for dag hourly_ingest state changed to failed", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same failed event, differing only by DAG name."},
+      {"pair_id": "P024", "template_a": "database tablespace AUDIT_LOG usage at <*> of allocated size", "template_b": "database tablespace STAGING usage at <*> of allocated size", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same tablespace-usage event, differing only by tablespace name."},
+      {"pair_id": "P025", "template_a": "database tablespace AUDIT_LOG usage at <*> of allocated size", "template_b": "database tablespace APP_DATA usage at <*> of allocated size", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same tablespace-usage event, differing only by tablespace name."},
+      {"pair_id": "P026", "template_a": "database tablespace AUDIT_LOG usage at <*> of allocated size", "template_b": "database tablespace APP_IDX usage at <*> of allocated size", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same tablespace-usage event, differing only by tablespace name."},
+      {"pair_id": "P027", "template_a": "cache hit ratio for schema-cache dropped to <*>", "template_b": "cache hit ratio for lookup-cache dropped to <*>", "structural_similarity": 0.875, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.93, "judge_p_same_event": 0.93, "judge_rationale": "Same cache-hit-ratio-drop event, differing only by cache name."},
+      {"pair_id": "P028", "template_a": "cache hit ratio for schema-cache dropped to <*>", "template_b": "cache hit ratio for dimension-cache dropped to <*>", "structural_similarity": 0.875, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.93, "judge_p_same_event": 0.93, "judge_rationale": "Same cache-hit-ratio-drop event, differing only by cache name."},
+      {"pair_id": "P029", "template_a": "cache hit ratio for lookup-cache dropped to <*>", "template_b": "cache hit ratio for dimension-cache dropped to <*>", "structural_similarity": 0.875, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.93, "judge_p_same_event": 0.93, "judge_rationale": "Same cache-hit-ratio-drop event, differing only by cache name."},
+      {"pair_id": "P030", "template_a": "pod <*> evicted from node <*> reason MemoryPressure", "template_b": "pod <*> OOMKilled after exceeding memory limit <*>", "structural_similarity": 0.375, "ground_truth_same_event": false, "judge_same_event": false, "judge_confidence": 0.8, "judge_p_same_event": 0.2, "judge_rationale": "Node-level MemoryPressure eviction and container-level OOMKill are distinct Kubernetes failure modes needing different remediation."},
+      {"pair_id": "P031", "template_a": "table events_raw row_count delta <*> rows in batch window", "template_b": "table sessions row_count delta <*> rows in batch window", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same row-count-delta event, differing only by table name."},
+      {"pair_id": "P032", "template_a": "table events_raw row_count delta <*> rows in batch window", "template_b": "table device_metrics row_count delta <*> rows in batch window", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same row-count-delta event, differing only by table name."},
+      {"pair_id": "P033", "template_a": "table events_raw row_count delta <*> rows in batch window", "template_b": "table user_dim row_count delta <*> rows in batch window", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.95, "judge_p_same_event": 0.95, "judge_rationale": "Same row-count-delta event, differing only by table name."},
+      {"pair_id": "P034", "template_a": "checkpoint lag for consumer group export-consumer is <*> seconds", "template_b": "checkpoint lag for consumer group enrich-consumer is <*> seconds", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.93, "judge_p_same_event": 0.93, "judge_rationale": "Same checkpoint-lag event, differing only by consumer group name."},
+      {"pair_id": "P035", "template_a": "checkpoint lag for consumer group export-consumer is <*> seconds", "template_b": "checkpoint lag for consumer group ingest-consumer is <*> seconds", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.93, "judge_p_same_event": 0.93, "judge_rationale": "Same checkpoint-lag event, differing only by consumer group name."},
+      {"pair_id": "P036", "template_a": "checkpoint lag for consumer group enrich-consumer is <*> seconds", "template_b": "checkpoint lag for consumer group ingest-consumer is <*> seconds", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.93, "judge_p_same_event": 0.93, "judge_rationale": "Same checkpoint-lag event, differing only by consumer group name."},
+      {"pair_id": "P037", "template_a": "http request to /v1/metrics returned status <*> in <*>", "template_b": "http request to /v1/status returned status <*> in <*>", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.62, "judge_p_same_event": 0.62, "judge_rationale": "Both are generic HTTP access-log lines; the endpoint path looks like an instance parameter of the same request-completed event, though different routes can also mean genuinely different operations."},
+      {"pair_id": "P038", "template_a": "http request to /v1/metrics returned status <*> in <*>", "template_b": "http request to /v1/health returned status <*> in <*>", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.62, "judge_p_same_event": 0.62, "judge_rationale": "Same generic request-completed log shape with only the endpoint differing, though a health-check route arguably serves a different operational purpose than others."},
+      {"pair_id": "P039", "template_a": "http request to /v1/metrics returned status <*> in <*>", "template_b": "http request to /v1/catalog returned status <*> in <*>", "structural_similarity": 0.8889, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.62, "judge_p_same_event": 0.62, "judge_rationale": "Same generic request-completed log shape; endpoint differences plausibly a category value rather than a distinct event type."},
+      {"pair_id": "P040", "template_a": "task_id=<*> failed after <*> with error_code <*>", "template_b": "task_id=<*> failed after <*> with error_code <*> (retryable)", "structural_similarity": 0.875, "ground_truth_same_event": true, "judge_same_event": true, "judge_confidence": 0.65, "judge_p_same_event": 0.65, "judge_rationale": "Both report the same task failure with an error code; the appended 'retryable' looks like extra metadata on one outcome, though it could matter enough for alerting/routing to argue the other way."}
+    ]
+  },
+  "drift_detection_demo": {
+    "n_windows": 6,
+    "calibrated_threshold": 0.06228,
+    "baseline_js_divergences_windows_0_to_2": [0.04152, 0.03287],
+    "drift_points": [
+      {"window_transition": "0->1", "js_divergence": 0.04152, "is_drift": false, "new_templates": ["dag_run <*> for dag backfill_partition state changed to failed", "dag_run <*> for dag hourly_ingest state changed to failed"]},
+      {"window_transition": "1->2", "js_divergence": 0.03287, "is_drift": false, "new_templates": []},
+      {"window_transition": "2->3", "js_divergence": 0.03634, "is_drift": false, "new_templates": ["database tablespace APP_IDX usage at <*> of allocated size"]},
+      {"window_transition": "3->4", "js_divergence": 0.09239, "is_drift": true, "new_templates": ["circuit breaker opened for downstream <*> after <*> consecutive failures", "circuit breaker opened for downstream billing-api after <*> consecutive failures", "dag_run <*> for dag daily_rollup state changed to failed", "schema validation failed for topic <*> field <*> type mismatch", "schema validation failed for topic <*> field event_ts type mismatch", "schema validation failed for topic device-events field event_ts type mismatch"]},
+      {"window_transition": "4->5", "js_divergence": 0.0733, "is_drift": true, "new_templates": ["dag_run <*> for dag capacity_snapshot state changed to failed"]}
+    ]
+  }
+}
