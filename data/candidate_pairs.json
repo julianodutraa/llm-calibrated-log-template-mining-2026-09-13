@@ -1,0 +1,372 @@
+[
+  {
+    "pair_id": "P000",
+    "template_a": "task_id=<*> finished in <*> with status SUCCESS",
+    "template_b": "task_id=<*> finished in <*> with status FAILED",
+    "structural_similarity": 0.8571,
+    "ground_truth_same_event": false,
+    "_canonical_a": "1a_task_success",
+    "_canonical_b": "1c_task_failed"
+  },
+  {
+    "pair_id": "P001",
+    "template_a": "task_id=<*> finished in <*> with status SUCCESS",
+    "template_b": "task_id=<*> failed after <*> with error_code <*>",
+    "structural_similarity": 0.4286,
+    "ground_truth_same_event": false,
+    "_canonical_a": "1a_task_success",
+    "_canonical_b": "2a_task_failed_plain"
+  },
+  {
+    "pair_id": "P002",
+    "template_a": "task_id=<*> finished in <*> with status SUCCESS",
+    "template_b": "task_id=<*> finished in <*> with status DEGRADED",
+    "structural_similarity": 0.8571,
+    "ground_truth_same_event": false,
+    "_canonical_a": "1a_task_success",
+    "_canonical_b": "1b_task_degraded"
+  },
+  {
+    "pair_id": "P003",
+    "template_a": "task_id=<*> finished in <*> with status FAILED",
+    "template_b": "task_id=<*> failed after <*> with error_code <*>",
+    "structural_similarity": 0.4286,
+    "ground_truth_same_event": false,
+    "_canonical_a": "1c_task_failed",
+    "_canonical_b": "2a_task_failed_plain"
+  },
+  {
+    "pair_id": "P004",
+    "template_a": "task_id=<*> finished in <*> with status FAILED",
+    "template_b": "task_id=<*> finished in <*> with status DEGRADED",
+    "structural_similarity": 0.8571,
+    "ground_truth_same_event": false,
+    "_canonical_a": "1c_task_failed",
+    "_canonical_b": "1b_task_degraded"
+  },
+  {
+    "pair_id": "P005",
+    "template_a": "task_id=<*> failed after <*> with error_code <*>",
+    "template_b": "task_id=<*> finished in <*> with status DEGRADED",
+    "structural_similarity": 0.5714,
+    "ground_truth_same_event": false,
+    "_canonical_a": "2a_task_failed_plain",
+    "_canonical_b": "1b_task_degraded"
+  },
+  {
+    "pair_id": "P006",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag capacity_snapshot state changed to success",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9b_dag_success"
+  },
+  {
+    "pair_id": "P007",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag hourly_ingest state changed to running",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9a_dag_running"
+  },
+  {
+    "pair_id": "P008",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag backfill_partition state changed to success",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9b_dag_success"
+  },
+  {
+    "pair_id": "P009",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag daily_rollup state changed to success",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9b_dag_success"
+  },
+  {
+    "pair_id": "P010",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag daily_rollup state changed to running",
+    "structural_similarity": 0.7778,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9a_dag_running"
+  },
+  {
+    "pair_id": "P011",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag capacity_snapshot state changed to failed",
+    "structural_similarity": 0.7778,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P012",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag capacity_snapshot state changed to running",
+    "structural_similarity": 0.7778,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9a_dag_running"
+  },
+  {
+    "pair_id": "P013",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag daily_rollup state changed to failed",
+    "structural_similarity": 0.7778,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P014",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to success",
+    "template_b": "dag_run <*> for dag backfill_partition state changed to failed",
+    "structural_similarity": 0.7778,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9b_dag_success",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P015",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to running",
+    "template_b": "dag_run <*> for dag daily_rollup state changed to running",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9a_dag_running",
+    "_canonical_b": "9a_dag_running"
+  },
+  {
+    "pair_id": "P016",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to running",
+    "template_b": "dag_run <*> for dag capacity_snapshot state changed to failed",
+    "structural_similarity": 0.7778,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9a_dag_running",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P017",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to running",
+    "template_b": "dag_run <*> for dag capacity_snapshot state changed to running",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9a_dag_running",
+    "_canonical_b": "9a_dag_running"
+  },
+  {
+    "pair_id": "P018",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to running",
+    "template_b": "dag_run <*> for dag backfill_partition state changed to running",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9a_dag_running",
+    "_canonical_b": "9a_dag_running"
+  },
+  {
+    "pair_id": "P019",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to running",
+    "template_b": "dag_run <*> for dag daily_rollup state changed to failed",
+    "structural_similarity": 0.7778,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9a_dag_running",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P020",
+    "template_a": "dag_run <*> for dag hourly_ingest state changed to running",
+    "template_b": "dag_run <*> for dag backfill_partition state changed to failed",
+    "structural_similarity": 0.7778,
+    "ground_truth_same_event": false,
+    "_canonical_a": "9a_dag_running",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P021",
+    "template_a": "dag_run <*> for dag capacity_snapshot state changed to failed",
+    "template_b": "dag_run <*> for dag daily_rollup state changed to failed",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9c_dag_failed",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P022",
+    "template_a": "dag_run <*> for dag capacity_snapshot state changed to failed",
+    "template_b": "dag_run <*> for dag backfill_partition state changed to failed",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9c_dag_failed",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P023",
+    "template_a": "dag_run <*> for dag capacity_snapshot state changed to failed",
+    "template_b": "dag_run <*> for dag hourly_ingest state changed to failed",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "9c_dag_failed",
+    "_canonical_b": "9c_dag_failed"
+  },
+  {
+    "pair_id": "P024",
+    "template_a": "database tablespace AUDIT_LOG usage at <*> of allocated size",
+    "template_b": "database tablespace STAGING usage at <*> of allocated size",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "7_tablespace",
+    "_canonical_b": "7_tablespace"
+  },
+  {
+    "pair_id": "P025",
+    "template_a": "database tablespace AUDIT_LOG usage at <*> of allocated size",
+    "template_b": "database tablespace APP_DATA usage at <*> of allocated size",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "7_tablespace",
+    "_canonical_b": "7_tablespace"
+  },
+  {
+    "pair_id": "P026",
+    "template_a": "database tablespace AUDIT_LOG usage at <*> of allocated size",
+    "template_b": "database tablespace APP_IDX usage at <*> of allocated size",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "7_tablespace",
+    "_canonical_b": "7_tablespace"
+  },
+  {
+    "pair_id": "P027",
+    "template_a": "cache hit ratio for schema-cache dropped to <*>",
+    "template_b": "cache hit ratio for lookup-cache dropped to <*>",
+    "structural_similarity": 0.875,
+    "ground_truth_same_event": true,
+    "_canonical_a": "15_cache",
+    "_canonical_b": "15_cache"
+  },
+  {
+    "pair_id": "P028",
+    "template_a": "cache hit ratio for schema-cache dropped to <*>",
+    "template_b": "cache hit ratio for dimension-cache dropped to <*>",
+    "structural_similarity": 0.875,
+    "ground_truth_same_event": true,
+    "_canonical_a": "15_cache",
+    "_canonical_b": "15_cache"
+  },
+  {
+    "pair_id": "P029",
+    "template_a": "cache hit ratio for lookup-cache dropped to <*>",
+    "template_b": "cache hit ratio for dimension-cache dropped to <*>",
+    "structural_similarity": 0.875,
+    "ground_truth_same_event": true,
+    "_canonical_a": "15_cache",
+    "_canonical_b": "15_cache"
+  },
+  {
+    "pair_id": "P030",
+    "template_a": "pod <*> evicted from node <*> reason MemoryPressure",
+    "template_b": "pod <*> OOMKilled after exceeding memory limit <*>",
+    "structural_similarity": 0.375,
+    "ground_truth_same_event": false,
+    "_canonical_a": "4_pod_evicted",
+    "_canonical_b": "5_pod_oom"
+  },
+  {
+    "pair_id": "P031",
+    "template_a": "table events_raw row_count delta <*> rows in batch window",
+    "template_b": "table sessions row_count delta <*> rows in batch window",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "12_row_delta",
+    "_canonical_b": "12_row_delta"
+  },
+  {
+    "pair_id": "P032",
+    "template_a": "table events_raw row_count delta <*> rows in batch window",
+    "template_b": "table device_metrics row_count delta <*> rows in batch window",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "12_row_delta",
+    "_canonical_b": "12_row_delta"
+  },
+  {
+    "pair_id": "P033",
+    "template_a": "table events_raw row_count delta <*> rows in batch window",
+    "template_b": "table user_dim row_count delta <*> rows in batch window",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "12_row_delta",
+    "_canonical_b": "12_row_delta"
+  },
+  {
+    "pair_id": "P034",
+    "template_a": "checkpoint lag for consumer group export-consumer is <*> seconds",
+    "template_b": "checkpoint lag for consumer group enrich-consumer is <*> seconds",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "8_checkpoint_lag",
+    "_canonical_b": "8_checkpoint_lag"
+  },
+  {
+    "pair_id": "P035",
+    "template_a": "checkpoint lag for consumer group export-consumer is <*> seconds",
+    "template_b": "checkpoint lag for consumer group ingest-consumer is <*> seconds",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "8_checkpoint_lag",
+    "_canonical_b": "8_checkpoint_lag"
+  },
+  {
+    "pair_id": "P036",
+    "template_a": "checkpoint lag for consumer group enrich-consumer is <*> seconds",
+    "template_b": "checkpoint lag for consumer group ingest-consumer is <*> seconds",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "8_checkpoint_lag",
+    "_canonical_b": "8_checkpoint_lag"
+  },
+  {
+    "pair_id": "P037",
+    "template_a": "http request to /v1/metrics returned status <*> in <*>",
+    "template_b": "http request to /v1/status returned status <*> in <*>",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "14_http",
+    "_canonical_b": "14_http"
+  },
+  {
+    "pair_id": "P038",
+    "template_a": "http request to /v1/metrics returned status <*> in <*>",
+    "template_b": "http request to /v1/health returned status <*> in <*>",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "14_http",
+    "_canonical_b": "14_http"
+  },
+  {
+    "pair_id": "P039",
+    "template_a": "http request to /v1/metrics returned status <*> in <*>",
+    "template_b": "http request to /v1/catalog returned status <*> in <*>",
+    "structural_similarity": 0.8889,
+    "ground_truth_same_event": true,
+    "_canonical_a": "14_http",
+    "_canonical_b": "14_http"
+  },
+  {
+    "pair_id": "P040",
+    "template_a": "task_id=<*> failed after <*> with error_code <*>",
+    "template_b": "task_id=<*> failed after <*> with error_code <*> (retryable)",
+    "structural_similarity": 0.875,
+    "ground_truth_same_event": true,
+    "_canonical_a": "2a_task_failed_plain",
+    "_canonical_b": "2b_task_failed_retryable",
+    "_note": "cross-length-bucket pair, added manually: invisible to the online index"
+  }
+]
